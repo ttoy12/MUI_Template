@@ -9,6 +9,7 @@ export const UserPage = lazy(() => import('src/pages/user'));
 export const LoginPage = lazy(() => import('src/pages/login'));
 export const ProductsPage = lazy(() => import('src/pages/products'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
+export const InventoryPage = lazy(() => import('src/pages/inventory'))
 
 // ----------------------------------------------------------------------
 

@@ -24,7 +24,7 @@ import { emptyRows, applyFilter, getComparator } from '../utils';
 
 // ----------------------------------------------------------------------
 
-export default function UserPage() {
+export default function InventoryPage() {
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
