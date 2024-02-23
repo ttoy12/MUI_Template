@@ -4,7 +4,7 @@ import { InventoryView } from 'src/sections/inventory/view';
 
 // ----------------------------------------------------------------------
 
-export default function UserPage() {
+export default function InventoryPage() {
   return (
     <>
       <Helmet>
