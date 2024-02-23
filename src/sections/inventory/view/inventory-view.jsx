@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 
-import { users } from 'src/_mock/user';
+import { inventory } from 'src/_mock/inventory';
 
 import Iconify from 'src/components/iconify';
 import Scrollbar from 'src/components/scrollbar';
@@ -47,7 +47,7 @@ export default function InventoryPage() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = users.map((n) => n.name);
+      const newSelecteds = inventory.map((n) => n.name);
       setSelected(newSelecteds);
       return;
     }
@@ -87,7 +87,7 @@ export default function InventoryPage() {
   };
 
   const dataFiltered = applyFilter({
-    inputData: users,
+    inputData: inventory,
     comparator: getComparator(order, orderBy),
     filterName,
   });
@@ -117,7 +117,7 @@ export default function InventoryPage() {
               <UserTableHead
                 order={order}
                 orderBy={orderBy}
-                rowCount={users.length}
+                rowCount={inventory.length}
                 numSelected={selected.length}
                 onRequestSort={handleSort}
                 onSelectAllClick={handleSelectAllClick}
@@ -148,7 +148,7 @@ export default function InventoryPage() {
 
                 <TableEmptyRows
                   height={77}
-                  emptyRows={emptyRows(page, rowsPerPage, users.length)}
+                  emptyRows={emptyRows(page, rowsPerPage, inventory.length)}
                 />
 
                 {notFound && <TableNoData query={filterName} />}
@@ -160,7 +160,7 @@ export default function InventoryPage() {
         <TablePagination
           page={page}
           component="div"
-          count={users.length}
+          count={inventory.length}
           rowsPerPage={rowsPerPage}
           onPageChange={handleChangePage}
           rowsPerPageOptions={[5, 10, 25]}
