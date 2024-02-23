@@ -2,7 +2,6 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
 import Popover from '@mui/material/Popover';
 import TableRow from '@mui/material/TableRow';
 import Checkbox from '@mui/material/Checkbox';
@@ -19,11 +18,11 @@ import Iconify from 'src/components/iconify';
 export default function UserTableRow({
   selected,
   name,
-  avatarUrl,
   ID,
-  role,
-  items,
+  location,
+  category,
   status,
+
   handleClick,
 }) {
   const [open, setOpen] = useState(null);
@@ -45,7 +44,6 @@ export default function UserTableRow({
 
         <TableCell component="th" scope="row" padding="none">
           <Stack direction="row" alignItems="center" spacing={2}>
-            <Avatar alt={name} src={avatarUrl} />
             <Typography variant="subtitle2" noWrap>
               {name}
             </Typography>
@@ -54,9 +52,9 @@ export default function UserTableRow({
 
         <TableCell>{ID}</TableCell>
 
-        <TableCell>{role}</TableCell>
+        <TableCell>{location ? 'Front Desk' : 'Outside'}</TableCell>
 
-        <TableCell align="left">{items ? '4' : '10'}</TableCell>
+        <TableCell align="left">{category ? 'Stationary' : 'Patrol'}</TableCell>
 
         <TableCell>
           <Label color={(status === 'banned' && 'error') || 'success'}>{status}</Label>
@@ -94,12 +92,11 @@ export default function UserTableRow({
 }
 
 UserTableRow.propTypes = {
-  avatarUrl: PropTypes.any,
   ID: PropTypes.any,
   handleClick: PropTypes.func,
-  items: PropTypes.any,
+  location: PropTypes.any,
   name: PropTypes.any,
-  role: PropTypes.any,
+  category: PropTypes.any,
   selected: PropTypes.any,
   status: PropTypes.string,
 };

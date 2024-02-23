@@ -122,10 +122,10 @@ export default function InventoryPage() {
                 onRequestSort={handleSort}
                 onSelectAllClick={handleSelectAllClick}
                 headLabel={[
-                  { id: 'name', label: 'Name' },
+                  { id: 'name', label: 'Product Name' },
                   { id: 'ID', label: 'ID#' },
-                  { id: 'role', label: 'Role' },
-                  { id: 'items', label: 'Items' },
+                  { id: 'location', label: 'Location' },
+                  { id: 'category', label: 'Category' },
                   { id: 'status', label: 'Status' },
                   { id: '' },
                 ]}
@@ -138,10 +138,9 @@ export default function InventoryPage() {
                       key={row.id}
                       name={row.name}
                       ID={row.ID}
-                      role={row.role}
+                      location={row.location}
+                      category={row.category}
                       status={row.status}
-                      avatarUrl={row.avatarUrl}
-                      isVerified={row.isVerified}
                       selected={selected.indexOf(row.name) !== -1}
                       handleClick={(event) => handleClick(event, row.name)}
                     />
