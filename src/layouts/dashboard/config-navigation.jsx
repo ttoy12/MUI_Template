@@ -1,3 +1,5 @@
+import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
+
 import SvgColor from 'src/components/svg-color';
 
 // ----------------------------------------------------------------------
@@ -21,6 +23,11 @@ const navConfig = [
     title: 'inventory',
     path: '/inventory',
     icon: icon('ic_cart')
+  },
+  {
+    title: 'Audit Log',
+    path: '/audit-log',
+    icon: <FactCheckOutlinedIcon />,
   },
   {
     title: 'login',
