@@ -100,7 +100,7 @@ export default function AuditLogPage() {
         <Typography variant="h4">Audit Log</Typography>
 
         <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
-          New User
+          Download
         </Button>
       </Stack>
 

@@ -100,7 +100,7 @@ export default function InventoryPage() {
         <Typography variant="h4">Inventory</Typography>
 
         <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
-          New User
+          New Item
         </Button>
       </Stack>
 
@@ -122,7 +122,7 @@ export default function InventoryPage() {
                 onRequestSort={handleSort}
                 onSelectAllClick={handleSelectAllClick}
                 headLabel={[
-                  { id: 'name', label: 'Product Name' },
+                  { id: 'name', label: 'Item Name' },
                   { id: 'ID', label: 'ID#' },
                   { id: 'location', label: 'Location' },
                   { id: 'category', label: 'Category' },
