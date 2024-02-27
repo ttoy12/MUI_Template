@@ -26,7 +26,7 @@ export default function Router() {
         { element: <IndexPage />, index: true },
         { path: 'user', element: <UserPage /> },
         { path: 'inventory', element: <InventoryPage />},
-        { path: 'audit-log', elemnt: <AuditLogPage />}
+        { path: 'audit-log', element: <AuditLogPage />},
       ],
     },
     {
