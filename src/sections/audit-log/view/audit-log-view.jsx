@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 
-import { inventory } from 'src/_mock/inventory';
+import { auditLog } from 'src/_mock/audit-log';
 
 import Iconify from 'src/components/iconify';
 import Scrollbar from 'src/components/scrollbar';
@@ -47,7 +47,7 @@ export default function AuditLogPage() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = inventory.map((n) => n.name);
+      const newSelecteds = auditLog.map((n) => n.name);
       setSelected(newSelecteds);
       return;
     }
@@ -87,7 +87,7 @@ export default function AuditLogPage() {
   };
 
   const dataFiltered = applyFilter({
-    inputData: inventory,
+    inputData: auditLog,
     comparator: getComparator(order, orderBy),
     filterName,
   });
@@ -97,7 +97,7 @@ export default function AuditLogPage() {
   return (
     <Container>
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-        <Typography variant="h4">Users</Typography>
+        <Typography variant="h4">Audit Log</Typography>
 
         <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
           New User
@@ -117,16 +117,15 @@ export default function AuditLogPage() {
               <UserTableHead
                 order={order}
                 orderBy={orderBy}
-                rowCount={inventory.length}
+                rowCount={auditLog.length}
                 numSelected={selected.length}
                 onRequestSort={handleSort}
                 onSelectAllClick={handleSelectAllClick}
                 headLabel={[
-                  { id: 'name', label: 'Product Name' },
-                  { id: 'ID', label: 'ID#' },
-                  { id: 'location', label: 'Location' },
-                  { id: 'category', label: 'Category' },
-                  { id: 'status', label: 'Status' },
+                  { id: 'Date', label: 'Date' },
+                  { id: 'name', label: 'Name' },
+                  { id: 'description', label: 'Description' },
+                  { id: 'ID', label: 'Item ID#' },
                   { id: '' },
                 ]}
               />
@@ -136,19 +135,18 @@ export default function AuditLogPage() {
                   .map((row) => (
                     <UserTableRow
                       key={row.id}
+                      //Date={row.Date}
                       name={row.name}
+                      description={row.description}
                       ID={row.ID}
-                      location={row.location}
-                      category={row.category}
-                      status={row.status}
-                      selected={selected.indexOf(row.name) !== -1}
-                      handleClick={(event) => handleClick(event, row.name)}
+                      selected={selected.indexOf(row.Date) !== -1}
+                      handleClick={(event) => handleClick(event, row.Date)}
                     />
                   ))}
 
                 <TableEmptyRows
                   height={77}
-                  emptyRows={emptyRows(page, rowsPerPage, inventory.length)}
+                  emptyRows={emptyRows(page, rowsPerPage, auditLog.length)}
                 />
 
                 {notFound && <TableNoData query={filterName} />}
@@ -160,7 +158,7 @@ export default function AuditLogPage() {
         <TablePagination
           page={page}
           component="div"
-          count={inventory.length}
+          count={auditLog.length}
           rowsPerPage={rowsPerPage}
           onPageChange={handleChangePage}
           rowsPerPageOptions={[5, 10, 25]}

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
 import Popover from '@mui/material/Popover';
 import TableRow from '@mui/material/TableRow';
 import Checkbox from '@mui/material/Checkbox';
@@ -19,7 +18,6 @@ import Iconify from 'src/components/iconify';
 export default function UserTableRow({
   selected,
   name,
-  avatarUrl,
   ID,
   role,
   items,
@@ -45,7 +43,6 @@ export default function UserTableRow({
 
         <TableCell component="th" scope="row" padding="none">
           <Stack direction="row" alignItems="center" spacing={2}>
-            <Avatar alt={name} src={avatarUrl} />
             <Typography variant="subtitle2" noWrap>
               {name}
             </Typography>
@@ -94,7 +91,6 @@ export default function UserTableRow({
 }
 
 UserTableRow.propTypes = {
-  avatarUrl: PropTypes.any,
   ID: PropTypes.any,
   handleClick: PropTypes.func,
   items: PropTypes.any,

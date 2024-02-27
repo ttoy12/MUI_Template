@@ -10,19 +10,16 @@ import TableCell from '@mui/material/TableCell';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 
-import Label from 'src/components/label';
 import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 
 export default function UserTableRow({
   selected,
+  Date,
   name,
   ID,
-  location,
-  category,
-  status,
-
+  description,
   handleClick,
 }) {
   const [open, setOpen] = useState(null);
@@ -45,20 +42,16 @@ export default function UserTableRow({
         <TableCell component="th" scope="row" padding="none">
           <Stack direction="row" alignItems="center" spacing={2}>
             <Typography variant="subtitle2" noWrap>
-              {name}
+              {Date}
             </Typography>
           </Stack>
         </TableCell>
 
+        <TableCell align="left">{name}</TableCell>
+
+        <TableCell align="left">{description}</TableCell>
+
         <TableCell>{ID}</TableCell>
-
-        <TableCell>{location ? 'Front Desk' : 'Outside'}</TableCell>
-
-        <TableCell align="left">{category ? 'Stationary' : 'Patrol'}</TableCell>
-
-        <TableCell>
-          <Label color={(status === 'banned' && 'error') || 'success'}>{status}</Label>
-        </TableCell>
 
         <TableCell align="right">
           <IconButton onClick={handleOpenMenu}>
@@ -94,9 +87,8 @@ export default function UserTableRow({
 UserTableRow.propTypes = {
   ID: PropTypes.any,
   handleClick: PropTypes.func,
-  location: PropTypes.any,
   name: PropTypes.any,
-  category: PropTypes.any,
+  description: PropTypes.string,
   selected: PropTypes.any,
-  status: PropTypes.string,
+  Date: PropTypes.any,
 };
