@@ -95,7 +95,7 @@ export default function UserPage() {
   const notFound = !dataFiltered.length && !!filterName;
 
   return (
-    <Container>
+    <Container sx={{ minHeight: '110%', backgroundColor: 'green'}}>
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
         <Typography variant="h4">Users</Typography>
 
@@ -104,7 +104,7 @@ export default function UserPage() {
         </Button>
       </Stack>
 
-      <Card>
+      <Card sx={{ backgroundColor: 'red', minHeight: '' }}>
         <UserTableToolbar
           numSelected={selected.length}
           filterName={filterName}
@@ -167,6 +167,10 @@ export default function UserPage() {
           rowsPerPageOptions={[5, 10, 25]}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
+      </Card>
+      <Card sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', borderRadius: '0%' }}>
+        <Button variant="contained" color="inherit">Previous</Button>
+        <Button variant="contained" color="inherit" alignItems="left">Next</Button>
       </Card>
     </Container>
   );

@@ -135,7 +135,6 @@ export default function AuditLogPage() {
                   .map((row) => (
                     <UserTableRow
                       key={row.id}
-                      //Date={row.Date}
                       name={row.name}
                       description={row.description}
                       ID={row.ID}
