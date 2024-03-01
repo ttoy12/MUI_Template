@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Table from '@mui/material/Table';
@@ -95,16 +96,23 @@ export default function UserPage() {
   const notFound = !dataFiltered.length && !!filterName;
 
   return (
-    <Container sx={{ minHeight: '110%', backgroundColor: 'green'}}>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-        <Typography variant="h4">Users</Typography>
+    <Container sx={{ backgroundColor: 'green', minHeight: '110%', overflow: 'scroll' }}>
+      <Box sx={{ backgroundColor: "purple", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px" }}>
+        <Typography variant="h4" sx={{ flexGrow: 1 }}>Users</Typography>
 
-        <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
-          New User
-        </Button>
-      </Stack>
+        <Stack direction="row" spacing={1}>
+          <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
+            New User
+          </Button>
+          <Button variant="contained" color="inherit">
+            <Iconify icon="ic:round-filter-list" />
+             Filter
+          </Button>
+          <Button variant="contained" color="inherit">Download</Button>
+        </Stack>
+      </Box>
 
-      <Card sx={{ backgroundColor: 'red', minHeight: '' }}>
+      <Card sx={{ backgroundColor: 'red' }}>
         <UserTableToolbar
           numSelected={selected.length}
           filterName={filterName}
@@ -164,7 +172,7 @@ export default function UserPage() {
           count={users.length}
           rowsPerPage={rowsPerPage}
           onPageChange={handleChangePage}
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[5, 10]}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Card>
