@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Table from '@mui/material/Table';
@@ -96,13 +97,20 @@ export default function InventoryPage() {
 
   return (
     <Container>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-        <Typography variant="h4">Inventory</Typography>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px" }}>
+        <Typography variant="h4" sx={{ flexGrow: 1 }}>Inventory</Typography>
 
-        <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
-          New Item
-        </Button>
-      </Stack>
+        <Stack direction="row" spacing={1}>
+          <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
+            New Item
+          </Button>
+          <Button variant="contained" color="inherit">
+            <Iconify icon="ic:round-filter-list" />
+             Filter
+          </Button>
+          <Button variant="contained" color="inherit">Download</Button>
+        </Stack>
+      </Box>
 
       <Card>
         <UserTableToolbar

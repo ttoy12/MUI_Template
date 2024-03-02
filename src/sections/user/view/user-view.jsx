@@ -96,7 +96,7 @@ export default function UserPage() {
   const notFound = !dataFiltered.length && !!filterName;
 
   return (
-    <Container sx={{ backgroundColor: 'green', minHeight: '110%', overflow: 'scroll' }}>
+    <Container sx={{ backgroundColor: 'green', minHeight: '110%' }}>
       <Box sx={{ backgroundColor: "purple", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px" }}>
         <Typography variant="h4" sx={{ flexGrow: 1 }}>Users</Typography>
 
