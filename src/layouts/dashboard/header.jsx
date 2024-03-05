@@ -64,7 +64,7 @@ export default function Header({ onOpenNav }) {
         sx={{
           height: 1,
           px: { lg: 5 },
-          backgroundColor: 'blue',
+          backgroundColor: '#1366D9',
         }}
       >
         {renderContent}
