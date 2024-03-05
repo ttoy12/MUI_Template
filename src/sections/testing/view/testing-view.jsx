@@ -34,7 +34,7 @@ const rows = [
 export default function TestingView() {
   return (
     <Container>
-      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px", minWidth: 650 }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px", minWidth: 650, backgroundColor: 'white', borderTopRightRadius: 10, borderTopLeftRadius: 10, marginTop: 2 }}>
         <Typography variant="h4" sx={{ flexGrow: 1 }}>Inventory</Typography>
         <Stack direction="row" spacing={1}>
           <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
@@ -47,15 +47,15 @@ export default function TestingView() {
           <Button variant="contained" color="inherit">Download</Button>
         </Stack>
       </Box>
-      <TableContainer component={Paper}>
+      <TableContainer sx={{ borderRadius: 0, borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }} component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell align="right">ID</TableCell>
-              <TableCell align="right">Role</TableCell>
-              <TableCell align="right">Items</TableCell>
-              <TableCell align="right">Status</TableCell>
+              <TableCell sx= {{ backgroundColor: "white" }}>Name</TableCell>
+              <TableCell sx= {{ backgroundColor: "white" }} align="right">ID</TableCell>
+              <TableCell sx= {{ backgroundColor: "white" }} align="right">Role</TableCell>
+              <TableCell sx= {{ backgroundColor: "white" }} align="right">Items</TableCell>
+              <TableCell sx= {{ backgroundColor: "white" }} align="right">Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
