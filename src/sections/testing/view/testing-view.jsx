@@ -25,7 +25,6 @@ const rows = [
   createData('Mary Jane', 'a2xBz', 'Officer', 2, 'Good'),
   createData('Bary Gary', 'B2qAd', 'Officer', 3, 'Bad'),
   createData('Bob Joe', 'J1D2xYz', 'Front Desk', 10, 'Good'),
-  createData('Bob Joe', 'J1D2xYz', 'Front Desk', 10, 'Good'),
   createData('Jobby Steve', 'Ja2zxYz', 'Chief', 30, 'Good'),
   createData('Mary Jane', 'a2xBz', 'Officer', 2, 'Good'),
   createData('Bary Gary', 'B2qAd', 'Officer', 3, 'Bad'),
@@ -35,7 +34,7 @@ export default function TestingView() {
   return (
     <Container>
       <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px", minWidth: 650, backgroundColor: 'white', borderTopRightRadius: 10, borderTopLeftRadius: 10, marginTop: 2 }}>
-        <Typography variant="h4" sx={{ flexGrow: 1 }}>Inventory</Typography>
+        <Typography variant="h4" sx={{ flexGrow: 1 }}>Users</Typography>
         <Stack direction="row" spacing={1}>
           <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Item
@@ -47,7 +46,7 @@ export default function TestingView() {
           <Button variant="contained" color="inherit">Download</Button>
         </Stack>
       </Box>
-      <TableContainer sx={{ borderRadius: 0, borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }} component={Paper}>
+      <TableContainer sx={{ borderRadius: 0 }} component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -76,6 +75,10 @@ export default function TestingView() {
           </TableBody>
         </Table>
       </TableContainer>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px", minWidth: 650, backgroundColor: 'white', borderBottomRightRadius: 10, borderBottomLeftRadius: 10}}>
+          <Button variant="contained" color="inherit">Previous</Button>
+          <Button variant="contained" color="inherit">Next</Button>
+    </Box>    
     </Container>
   );
 }
