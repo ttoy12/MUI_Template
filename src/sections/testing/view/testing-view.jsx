@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
@@ -18,7 +18,7 @@ function createData(name, id, role, items, status) {
   return { name, id, role, items, status };
 }
 
-const rows = [
+const ROWS = [
   createData('Bob Joe', 'J1D2xYz', 'Front Desk', 10, 'Good'),
   createData('Bob Joe', 'J1D2xYz', 'Front Desk', 10, 'Good'),
   createData('Jobby Steve', 'Ja2zxYz', 'Chief', 30, 'Good'),
@@ -30,7 +30,47 @@ const rows = [
   createData('Bary Gary', 'B2qAd', 'Officer', 3, 'Bad'),
 ];
 
+// structure of data:
+// [
+//   {
+//     "id": 0,
+//     "item": {
+//       "Productname": "string",
+//       "category": "string",
+//       "location": "string",
+//       "price": 0,
+//       "purchaseDate": "2024-03-11",
+//       "purchaseLocation": "string",
+//       "status": "string",
+//       "officerName": "string",
+//       "officerID": 0
+//     }
+//   }
+// ]
+
 export default function TestingView() {
+  const [rows, setRows] = useState([]);
+
+  // function to fetch data from our database
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3010/v0/item', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        const data = await response.json();
+        setRows(data); // Assuming the response is an array of objects similar to the hardcoded 'rows' array
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Container>
       <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px", minWidth: 650, backgroundColor: 'white', borderTopRightRadius: 10, borderTopLeftRadius: 10, marginTop: 2 }}>
@@ -58,7 +98,7 @@ export default function TestingView() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {ROWS.map((row) => (
               <TableRow
                 key={row.name}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
